@@ -2,33 +2,28 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-function formatName(user){
-  return user.firstName + ' ' + user.lastName;
-}
-function App() {
-  const user = {
-    firstName: "Charles",
-    lastName: "Abety"
-  };
+function Welcome(props){
+  // let co = {};
+  // co.color = props.color ? props.color : 'red';
+  // or:
+  const colorObj = {};
+  colorObj.color = props.color
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <p>Hello, my name is  {user.firstName} {user.lastName} </p>
-        <p>Also, i am fancy: {formatName(user)}</p>
-        <p>With ES6... look at you -:) {`${user.firstName} ${user.lastName}`}</p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <h1>{props.greet} {props.name}!</h1>
+        <h3 style={colorObj}>Do you have a {props.pet}?</h3>
+      </div>
+  );
+}
+
+
+function App() {
+
+  return (
+    <div>
+      <Welcome name="Era" greet="Welcome" pet="dog" color='cyan'/>
+      <Welcome name="Sue" greet="Goodbye" pet="cat" color='blue'/>
+      <Welcome name="Bob" greet="Goodbye" pet="rabbit"/>
     </div>
   );
 }
